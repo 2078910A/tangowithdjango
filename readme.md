@@ -1,0 +1,1 @@
+This is the repository where I will store the web app created by following the http://www.tangowithdjango.com/ textbook
