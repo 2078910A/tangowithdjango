@@ -1,3 +1,4 @@
 *.pyc
 tango_with_django_project/.idea
 tango_with_django_project/db.sqlite3
+.gitignore*
