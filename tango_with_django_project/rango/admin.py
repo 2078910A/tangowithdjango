@@ -13,13 +13,14 @@ class PageInLine(admin.TabularInline):
 
 class CategoryAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,        {'fields': ['name']}),
+        (None,        {'fields': ['name','slug']}),
         ('Popularity info', {'fields': ['views', 'likes'],
                              'classes': ['collapse']}),
     ]
+
     inlines = [PageInLine]
+
+    prepopulated_fields = {'slug' : ('name',)}
 
 admin.site.register(Category, CategoryAdmin)
 #admin.site.register(Page, PageAdmin)
-
-# Register your models here.

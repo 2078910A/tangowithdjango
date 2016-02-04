@@ -8,9 +8,26 @@
     <title>Rango</title>
 </head>
 <body>
-    <h1>Rango says...</h1>
-    Hello word! <strong>{{  boldmessage }}</strong><br />
+    <h1>Rango says... Hello word!</h1>
+    <br />
+    <h4>Categories</h4>
+    {% if categories %}
+        <ul>
+            {% for category in categories %}
+            <li><a href="/rango/category/{{ category.slug }}">{{ category.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <strong>There are no categories present.</strong>
+    {% endif %}
+    <h4>Most viewed pages:</h4>
+    {% if pages %}
+        <ul>
+            {% for page in pages %}
+                <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     <a href="/rango/about">About</a>
-    <img src="{% static "images/Chameleon.png" %}" alt="Picture of a chameleon" />
 </body>
 </html>
