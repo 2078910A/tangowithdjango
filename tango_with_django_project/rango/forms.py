@@ -1,6 +1,8 @@
 from django import forms
-from rango.models import Page, Category
 from django.forms.widgets import TextInput
+from django.contrib.auth.models import User
+
+from rango.models import Page, Category, UserProfile
 
 class CategoryForm(forms.ModelForm):
     name = forms.CharField(max_length=128, help_text="Please enter the category name.")
@@ -15,6 +17,7 @@ class CategoryForm(forms.ModelForm):
         fields = ('name', )
 
 class PageForm(forms.ModelForm):
+
     title = forms.CharField(max_length=128, help_text="Please enter the title of the page:")
     url = forms.URLField(max_length=200, help_text="Please enter the URL of the page:",
         widget=TextInput)
@@ -37,3 +40,17 @@ class PageForm(forms.ModelForm):
         #Similarly can include fields by using 'fields=(...)'
         #exclude = ('category', 'views')
         fields = ('title', 'url')
+
+class UserForm(forms.ModelForm):
+
+    password = forms.CharField(widget=forms.PasswordInput())
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password')
+
+class UserProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = UserProfile
+        fields = ('website', 'picture')
