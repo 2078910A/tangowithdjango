@@ -1,18 +1,14 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
 {% load staticfiles %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>This is the about page</title>
-</head>
-<body>
+{% block title %}About{% endblock %}
+
+{% block body_block %}
+
     <h2>This page was created by Blair Aitcheson (2078910A)</h2>
-    <a href="{% url 'rango:index' %}">Index page</a>
-    <br />
-    This is him, isn't he <strong>{{ boldmessage }}</strong>?
-    <br />
+    <a href="{% url 'rango:index' %}">Index page</a><br />
+    This is him, isn't he <strong>{{ boldmessage }}</strong>?<br />
     <img src="{% static 'images/MeNKmac.jpg' %}"  alt="Me and Kmac" width="42" height="42"/>
-</body>
-</html>
+
+{% endblock %}

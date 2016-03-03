@@ -202,7 +202,7 @@ def user_login(request):
 
 @login_required
 def restricted(request):
-    return HttpResponse("Since you are logged in, you can see this text!")
+    return render(request, 'rango/restricted.html', {})
 
 
 #Use the @login_required decorator to make sure only those that are logged in can log out!
